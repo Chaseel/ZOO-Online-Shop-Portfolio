@@ -1,0 +1,101 @@
+
+.welcome-container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.about-container {
+    float: left;
+    width: 50%;
+    text-align: center;
+    background-color: #fff;
+    flex: 2;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    animation: fade-in 1s ease-in-out;
+    max-width: 600px;
+    margin: 20px;
+}
+
+.about-container h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.about-container p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.about-container img {
+    max-width: 100%;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+.welcome-container img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+a {
+    font-family: 'Verdana', sans-serif;
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #0056b3;
+}
+.welcome-container h1,
+.about-container h1 {
+    font-family: 'Helvetica', sans-serif;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+.welcome-container p,
+.about-container p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.about-container {
+    float: left;
+    width: 50%;
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin: 10px; /* Добавлен отступ между контейнерами */
+}
+
+.container {
+    display: flex;
+    justify-content: space-between; /* Распределяем пространство между элементами */
+    align-items: flex-start; /* Выравниваем элементы по верхнему краю */
+}

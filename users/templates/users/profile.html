@@ -1,0 +1,41 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'users/css/profile.css' %}">
+  <title>Профиль</title>
+</head>
+<body>
+  <div class="profile">
+
+    <h1>Профиль пользователя</h1>
+    <form id="profileForm" action="{% url 'users:profile' %}" method= "post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="avatar-container">
+            <img src="{% if user.image %} {{ user.image.url }} {% else %} {% static 'main/img/default_avatar.png' %} {% endif %}" alt="User Avatar" class="avatar">
+            <div class="file-input-container">
+                <label class="{{ form.image.id_for_label }}" for="avatar"></label>
+                {{ form.image }}
+            </div>
+        </div>
+      <label for="{{form.username.id_for_label}}">Имя пользователя:</label>
+      {{ form.username }}
+
+      <label for="{{form.email.id_for_label}}">Email:</label>
+      {{form.email}}
+
+      <label for="{{form.about_us.id_for_label}}">О себе:</label>
+      {{form.about_us}}
+
+      <button type="submit">Сохранить</button>
+    </form>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+{% if baskets %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'main/css/basket.css' %}">
+        <title>Корзина товаров</title>
+    </head>
+    <body>
+        <div class="cart-container">
+            <h1>Ваша корзина</h1>
+            {% for basket in baskets %}
+                <ul class="cart-items">
+                    <li class="cart-item">
+                        <img src="{{basket.product.image.url}}" alt="Product 1">
+                        <div class="item-details">
+                            <h2>{{ basket.product.name }}</h2>
+                            <p>{{ basket.product.description }}</p>
+                            <p class="item-price">{{ basket.sum }} $</p>
+                            <input type="number" class="item-quantity" value="{{ basket.quantity }}" readonly>
+                            <a href= "{% url 'products:basket_remove' basket.id %}" class= 'add-to-basket'>Удалить</a>
+                        </div>
+                    </li>
+                </ul>
+            {% endfor %}
+            <div class="cart-total">
+                <p class="total-text">Итого:</p>
+                <p class="total-price ">{{ total_sum }} $ </p>
+                <button class="checkout-button">Оформить заказ</button>
+            </div>
+        </div>
+    </body>
+    </html>
+{% else %}
+    <link rel="stylesheet" href="{% static 'main/css/basket.css' %}">
+    <div class="cart-container empty-cart-container">
+        <h1>Ваша корзина</h1>
+        <div class="empty-cart-message">
+            <p>Ваша корзина пуста</p>
+        </div>
+    </div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+<div class="welcome-container">
+  <h1>Добро пожаловать в наш зоомагазин!</h1>
+  <p>Тут вы можете дать дом кошечке или собачке <a href="#">которые в этом нуждаються</a></p>
+  <img src="{% static 'main/img/welcome.jpg' %}" alt="Приветствие">
+  <p>Чтобы начать покупки, перейдите на <a href="{% url 'products:index'%}">страницу продуктов</a> магазина.</p>
+</div>
+{% endblock %}

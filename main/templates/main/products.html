@@ -1,0 +1,41 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'main/css/products.css' %}">
+    <title>Интернет-магазин товаров для животных</title>
+</head>
+<body>
+    <div class="container">
+        <div id="sidebar"> 
+    <aside>
+      <h2 class="center-text">Каталог</h2>
+      <ul  class="catalog-section center-text">
+        {% for category in categories %}
+          <li><a class="my-element" href="{% url 'products:category' category.id %}">{{ category.name }}</a></li>
+        {% endfor %}
+      </ul>
+    </aside>
+        </div>
+      <div class="separator"></div>
+        <div id="content">
+          {% for product in products %}
+            <div class="product">
+                <img src="{{ product.image.url }}" alt="Товар 1">
+                <h3>{{ product.name }}</h3>
+                <p>{{ product.description }}</p>
+                <p class="item-price">{{ product.price }} $</p>
+                <a href= '{% url 'products:basket_add' product.id %}' class="add-to-basket">Добавить в корзину</a>
+            </div>
+          {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
+
+{% endblock %}
+
